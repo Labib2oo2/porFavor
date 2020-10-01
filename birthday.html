@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color">
+  <meta name="viewport" content="width=device-width , initial-scale=1">
+  <title>Index</title>
+</head>
+
+<body>
+  <div>
+    <div> <button onclick="playaudio()"><img width="50px" src="https://www.flaticon.com/svg/static/icons/svg/3534/3534219.svg"/></button></div>
+    <div class="m_c">
+      <div id="timer"></div>
+      
+      <div class="left">
+        <img src="https://www.flaticon.com/svg/static/icons/svg/833/833472.svg" />
+      </div>
+    </div>
+  </div>
+  <audio id="myAudio">
+    <source src="/storage/emulated/0/Mp3Cutter/AudioCutter/AudioCutter_Rumi(5).mp3">
+  </audio>
+  <p ID="p">FIND THE HIDDEN GIFT</p>
+</body>
+
+</html>
+<style>
+#p{ width:100vw; text-align:center;}
+button{  width:0vw; visibility:hidden;}
+  body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background: black;
+  }
+
+  .m_c {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left {
+    width: 200px;
+    animation: heartFadeInOut 2s infinite;
+    transition: all 5s !important;
+  }
+
+  @keyframes heartFadeInOut {
+    0% {
+      transform: scale(1);
+    }
+
+    25% {
+      transform: scale(.97);
+    }
+
+    35% {
+      transform: scale(.9);
+    }
+
+    45% {
+      transform: scale(1.1);
+    }
+
+    55% {
+      transform: scale(.9);
+    }
+
+    65% {
+      transform: scale(1.1);
+    }
+
+    75% {
+      transform: scale(1.03);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+
+  }
+
+  #timer {
+    position: absolute;
+    top: 200px;
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+    z-index: 1;
+    text-align:center;
+
+  }
+</style>
+<script>
+function playaudio(){
+  var aud = new Audio("file:///storage/emulated/0/Mp3Cutter/AudioCutter/AudioCutter_Rumi(5).mp3");
+aud.play();
+};
+  
+   
+
+
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', 'black');
+
+  var  b_time = new Date( "oct 01, 2020 00:00:00" 
+  ).getTime() + 2000;
+
+  var sort = setInterval(function() {
+    var now = new Date().getTime();
+
+    var remain_minutes = Math.floor((b_time - now) / (1000 * 60));
+    var remain_seconds = Math.floor((b_time - now) / (1000));
+    var remain_ms = b_time - now;
+    if (remain_seconds <= 00) {
+      clearInterval(sort);
+
+
+      setTimeout(function() {
+
+        document.body.style.background = "#D7443E";
+        
+document.getElementById("timer").style.cssText=""; 
+
+
+        document.getElementById("timer").innerHTML = "HAPPY BIRTHDAY ROOMIE!!! &#128536;";
+
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#D7443E');
+        
+ document.querySelector("button").style.cssText="visibility:visible; opacity:0;";
+
+     
+      }, 10);
+
+
+
+    };
+
+
+    document.getElementById("timer").innerHTML = remain_minutes + " &#9829; " + remain_seconds;
+  }, 1);
+
+  
+</script>
